@@ -55,6 +55,14 @@ const App = () => {
     { name: 'FAQ', href: '#faq' }
   ];
 
+  // Verified Instagram Rosette Badge SVG
+  const InstagramVerifiedBadge = ({ className = "w-5 h-5" }) => (
+    <svg className={`${className} inline-block select-none shrink-0 align-middle`} viewBox="0 0 24 24" fill="none">
+      <path d="M22.23 11.23l-1.92-1.93.3-2.7a1.64 1.64 0 0 0-1.46-1.81l-2.7-.3-1.93-1.92a1.64 1.64 0 0 0-2.3 0l-1.93 1.92-2.7.3A1.64 1.64 0 0 0 5.7 6.6l.3 2.7-1.92 1.93a1.64 1.64 0 0 0 0 2.3l1.92 1.93-.3 2.7a1.64 1.64 0 0 0 1.46 1.81l2.7.3 1.93 1.92a1.64 1.64 0 0 0 2.3 0l1.93-1.92 2.7-.3a1.64 1.64 0 0 0 1.46-1.81l-.3-2.7 1.92-1.93a1.64 1.64 0 0 0 0-2.3z" fill="#0095F6" />
+      <path d="M9.83 15.73l-3.3-3.3 1.4-1.4 1.9 1.9 4.9-4.9 1.4 1.4-6.3 6.3z" fill="white" />
+    </svg>
+  );
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#4ade80]/30 selection:text-[#4ade80] font-sans antialiased scroll-smooth">
       <style>{`
@@ -120,7 +128,7 @@ const App = () => {
             </button>
           </div>
 
-          {/* REPLACED SECTION: WORK IMPACT HIGHLIGHTS */}
+          {/* WORK IMPACT HIGHLIGHTS */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 border-t border-white/10">
             <div className="group">
               <div className="flex items-center gap-3 mb-2">
@@ -285,28 +293,47 @@ const App = () => {
           <h2 className="text-4xl font-bold mb-16">Who's behind Findia?</h2>
           
           <div className="relative group p-[1px] rounded-[40px] overflow-hidden transition-all duration-500">
+            {/* Emerald animated stroke outline wrapper */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent group-hover:from-[#4ade80]/30 transition-all duration-500"></div>
+            
             <div className="relative bg-[#0a0a0a] border border-white/5 rounded-[40px] p-8 md:p-12 overflow-hidden">
+              <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#4ade80]/10 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
               <div className="flex flex-col md:flex-row gap-10 items-center md:items-start relative z-10">
+                
+                {/* Profile Picture Frame with uploaded image and overlapping Instagram badge */}
                 <div className="relative transform group-hover:scale-105 transition-transform duration-500">
-                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border-2 border-white/10 group-hover:border-[#4ade80] p-1 overflow-hidden">
-                    <div className="w-full h-full rounded-full bg-[#111] flex items-center justify-center">
-                        <span className="text-4xl font-bold text-white/20 group-hover:text-[#4ade80]">BD</span>
-                    </div>
+                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border-2 border-white/10 group-hover:border-[#4ade80] p-1 overflow-hidden transition-colors duration-500 bg-[#111]">
+                    <img 
+                      src="Profile.png" 
+                      alt="Biplob Das" 
+                      className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-700" 
+                    />
                   </div>
-                  <div className="absolute bottom-2 right-2 bg-blue-500 rounded-full p-1 border-2 border-black">
-                    <Check className="w-4 h-4 text-white" />
+                  {/* Overlapping Instagram Badge at Avatar bottom-right corner */}
+                  <div className="absolute bottom-2 right-2 bg-black rounded-full p-0.5 border-2 border-black shadow-lg">
+                    <InstagramVerifiedBadge className="w-6 h-6" />
                   </div>
                 </div>
 
+                {/* Profile Info & Verification Line */}
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-3xl font-bold mb-1 tracking-tight group-hover:text-[#4ade80] transition-colors">Biplob Das</h3>
-                  <div className="flex items-center gap-1 justify-center md:justify-start mb-4">
-                     <span className="text-blue-500 font-bold text-sm">verified</span>
-                     <MoreHorizontal className="w-4 h-4 text-white/40" />
+                  <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2 justify-center md:justify-start">
+                    <h3 className="text-3xl font-bold tracking-tight group-hover:text-[#4ade80] transition-colors inline-flex items-center gap-2">
+                      Biplob Das
+                      <InstagramVerifiedBadge className="w-6 h-6" />
+                    </h3>
                   </div>
+
+
                   <p className="text-xl font-medium text-white/90 mb-6">AI & Automation Expert</p>
-                  <div className="space-y-4 text-white/60 leading-relaxed text-lg">
+                  
+                  <div className="flex flex-wrap justify-center md:justify-start gap-8 mb-8 text-sm uppercase tracking-widest font-bold text-white/40">
+                    <div><span className="text-white group-hover:text-[#4ade80] transition-colors">940</span> followers</div>
+                    <div><span className="text-white group-hover:text-[#4ade80] transition-colors">500+</span> connections</div>
+                  </div>
+
+                  <div className="space-y-4 text-white/60 leading-relaxed text-lg transition-colors group-hover:text-white/80">
                     <p>Turning complex processes into scalable RPA, Agentic AI, & Intelligent Automation solutions.</p>
                     <p className="text-[#4ade80] font-medium flex items-center justify-center md:justify-start gap-2 cursor-pointer hover:underline" onClick={() => window.open('https://biplobdas.com', '_blank')}>
                       @biplobdas <ExternalLink className="w-4 h-4" />
@@ -316,7 +343,8 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="mt-12 text-lg text-white/60 leading-relaxed max-w-3xl">
+
+          <div className="mt-12 text-lg text-white/60 leading-relaxed max-w-3xl mx-auto md:mx-0">
             <p>
               Biplob built Findia to turn operational inefficiencies into autonomous growth engines. 
               Findia helps businesses scale without adding headcount through intelligent automation 
