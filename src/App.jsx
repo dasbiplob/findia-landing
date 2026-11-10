@@ -52,6 +52,7 @@ const App = () => {
     { name: 'Home', href: '#' },
     { name: 'Services', href: '#services' },
     { name: 'About', href: '#about' },
+    { name: 'Portfolio', href: 'https://svelte-portfolio-cyw2.onrender.com/', isExternal: true },
     { name: 'FAQ', href: '#faq' }
   ];
 
